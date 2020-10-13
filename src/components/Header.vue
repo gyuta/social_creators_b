@@ -3,7 +3,7 @@
     <div id="title" @click="$router.push({name: 'main'}).catch(err=>{})">バルス（仮）</div>
     <div class="right">
       <div v-if="user" class="mypage"  @click="$router.push({name: 'profile', params: {'id': user.id}}).catch(err=>{})">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT3SUoeX6jEyFqg80JJfDfkHFJIJZxE76crNg&usqp=CAU" alt="" class="icon">
+        <img :src="user.icon" alt="" class="icon">
       </div>
       <div v-else class="btns">
         <div class="btn signup" @click="$router.push('\signup').catch(err=>{})">新規登録</div>

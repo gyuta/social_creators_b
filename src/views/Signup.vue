@@ -40,7 +40,7 @@ export default {
             .set({
               id: result.user.uid,
               name: _this.name,
-              icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT3SUoeX6jEyFqg80JJfDfkHFJIJZxE76crNg&usqp=CAU'
+              icon: 'https://firebasestorage.googleapis.com/v0/b/social-creators-b.appspot.com/o/userIcon%2Fdefault.png?alt=media&token=03423779-f433-4d38-85d6-d5c1e96cc81e'
             })
             .then( () => {
               _this.$router.push({name: 'profile', params: {id: result.user.uid}})
