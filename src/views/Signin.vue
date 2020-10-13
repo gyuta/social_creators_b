@@ -9,7 +9,7 @@
       <label>パスワード</label>
       <input type="password" placeholder=" " v-model="password" />
     </div>
-    <div @click='signin'>ログインする</div>
+    <div class='c-btn' @click='signin'>ログインする</div>
   </div>
 </template>
 

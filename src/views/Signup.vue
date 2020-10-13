@@ -13,7 +13,7 @@
       <label>パスワード</label>
       <input type="password" placeholder=" " v-model="password" />
     </div>
-    <div @click='create'>
+    <div class='c-btn' @click='create'>
       登録する
     </div>
   </div>

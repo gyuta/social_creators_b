@@ -1,7 +1,8 @@
 <template>
   <div>
     <h1>マイページ</h1>
-    <div @click='signout'>ログアウトする</div>
+    <p>こんにちは、{{ loginUser.name }} さん</p>
+    <div class='c-btn' @click='signout'>ログアウトする</div>
   </div>
 </template>
 
@@ -9,6 +10,7 @@
 
 export default {
   name: 'Profile',
+  props: ['loginUser'],
   methods: {
     signout() {
       const _this = this

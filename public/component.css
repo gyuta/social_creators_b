@@ -1,0 +1,8 @@
+.c-btn {
+    cursor: pointer;
+    padding: 2px 4px;
+    margin: 5px;
+    border: black solid 1px;
+    border-radius: 4px;
+    display: inline-block;
+}

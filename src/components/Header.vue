@@ -31,6 +31,8 @@ export default {
 
 #title {
   flex-grow: 1;
+  text-align: center;
+  cursor: pointer;
 }
 
 .icon {
