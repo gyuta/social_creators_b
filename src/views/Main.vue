@@ -1,5 +1,7 @@
 <template>
-  <div>main</div>
+  <div>
+    <h1>メインページ</h1>
+  </div>
 </template>
 
 <script>
