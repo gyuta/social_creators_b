@@ -4,6 +4,7 @@ import router from './router'
 import util from "./js/util";
 import firebase from './js/firebase.js'
 import Croppa from 'vue-croppa';
+import "./js/filter"
 
 Vue.config.productionTip = false
 

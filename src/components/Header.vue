@@ -2,7 +2,7 @@
   <div id="header">
     <div id="title" @click="$router.push({name: 'main'}).catch(err=>{})">バルス（仮）</div>
     <div class="right">
-      <div v-if="user" class="mypage"  @click="$router.push({name: 'profile', params: {'id': user.id}}).catch(err=>{})">
+      <div v-if="user" class="mypage"  @click="$router.push('\mypage').catch(err=>{})">
         <img :src="user.icon" alt="" class="icon">
       </div>
       <div v-else class="btns">
