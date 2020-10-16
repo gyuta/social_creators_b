@@ -22,7 +22,7 @@
     <div class="c-btn" @click='$refs.ReadQR.isActive = true'>QRコードを読み取る</div>
     <br>
     <br>
-    <div class="c-btn" @click="$router.push('mystore')">店舗情報へ</div>
+    <div class="c-btn" v-if="isOwner" @click="$router.push('\mystore')">店舗情報へ</div>
     <br>
     <br>
     <div class='c-btn' @click='signout'>ログアウトする</div>
@@ -40,6 +40,11 @@ export default {
   name: 'Profile',
   props: ['loginUser'],
   components: {Modal, UpdateProfile, UpdateIcon, VueQrcode, ReadQR},
+  data() {
+    return {
+      isOwner: this.loginUser.kind === 'owner'
+    }
+  },
   methods: {
     signout() {
       const _this = this
