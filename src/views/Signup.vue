@@ -55,7 +55,7 @@ export default {
               kind: _this.kind
             })
             .then( () => {
-              _this.$router.push({name: 'profile', params: {id: result.user.uid}})
+              _this.$router.push('\mypage')
             })
         })
         .catch( err => {
