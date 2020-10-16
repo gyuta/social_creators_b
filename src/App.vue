@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header :user='user'></Header>
-    <router-view :loginUser='user' />
+    <router-view :loginUser='user' @getUser='getUser' />
   </div>
 </template>
 
@@ -14,24 +14,35 @@ export default {
   data() {
     return {
       user: null,
+      authUser: null
     }
   },
   created() {
-    this.getUser();
+    this.getAuthUser();
   },
   methods: {
-    getUser() {
+    getAuthUser() {
       const _this = this;
       this.$firebase.auth().onAuthStateChanged( authUser => {
         if (authUser) {
+          _this.authUser =  authUser
           _this.getUserInfoFromUserId(authUser.uid)
             .then( user => {
               _this.user = user
             })
         } else {
+          _this.authUser = null
           _this.user = null
         }
       });
+    },
+    getUser() {
+      if (this.authUser) {
+        this.getUserInfoFromUserId(this.authUser.uid)
+            .then( user => {
+              this.user = user
+            })
+      }
     }
   }
 }

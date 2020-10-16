@@ -1,14 +1,8 @@
 <template>
-  <div class="modal" v-bind:class="{ 'is-active': isActive }">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-    <section class="modal-card-body main">
-      <croppa v-model="myCroppa" placeholder="画像を選択" @new-image="showOkBtn = true" @image-remove="showOkBtn = false"></croppa>
-      <div v-show="showOkBtn" class="ok btn" @click="uploadCroppedImg">プロフィール画像として設定する</div>
-      <div class="cancel btn" @click="isActive = false">キャンセル</div>
-    </section>
-    </div>
-  </div>
+<div>
+  <croppa v-model="myCroppa" placeholder="画像を選択" @new-image="showOkBtn = true" @image-remove="showOkBtn = false"></croppa>
+  <div v-show="showOkBtn" class="ok btn" @click="uploadCroppedImg">プロフィール画像として設定する</div>
+</div>
 </template>
 
 <script>
@@ -16,7 +10,7 @@ import 'vue-croppa/dist/vue-croppa.css'
 import { v4 as uuidv4 } from 'uuid'
 
 export default {
-  name: 'UpdateProfileImg',
+  name: 'UpdateIcon',
   data() {
     return {
       myCroppa: {},
@@ -40,7 +34,7 @@ export default {
                 .doc(_this.uid)
                 .update({'icon': url})
                 .then(() => {
-                  location.reload();
+                  _this.$emit('update')
                 })
             })
           })
