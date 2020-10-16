@@ -59,6 +59,7 @@ export default {
                 await this.$firebase.firestore().collection('stores')
                   .doc(result.user.uid)
                   .set({
+                    id: result.user.uid,
                     createdAt: _this.$firebase.firestore.FieldValue.serverTimestamp()
                   })
               }
