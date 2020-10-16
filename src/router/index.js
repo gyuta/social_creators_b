@@ -27,6 +27,11 @@ const routes = [
     component: () => import('../views/Profile.vue')
   },
   {
+    path: '/map',
+    name: 'map',
+    component: () => import('../views/Map.vue')
+  },
+  {
     path: '/',
     name: 'main',
     component: Main
