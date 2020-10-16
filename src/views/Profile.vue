@@ -1,6 +1,6 @@
 <template>
   <div>
-    <UpdateProfileImg ref='modal' :uid='$route.params.id'></UpdateProfileImg>
+    <!-- <UpdateProfileImg ref='modal' :uid='$route.params.id'></UpdateProfileImg> -->
     <h1>マイページ</h1>
     <p>こんにちは、{{ loginUser.name }} さん</p>
     <div class='c-btn' @click='$refs.modal.isActive = true'>アイコンを変更する</div>
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import UpdateProfileImg from '../components/UpdateProfileImg.vue'
+// import UpdateProfileImg from '../components/UpdateProfileImg.vue'
 
 export default {
   name: 'Profile',
@@ -20,7 +20,7 @@ export default {
     }
   },
   props: ['loginUser'],
-  components: {UpdateProfileImg},
+  // components: {UpdateProfileImg},
   created() {
     this.isOwner = (this.userInfo && this.userInfo.uid === this.uid)
 

@@ -1,6 +1,5 @@
 <template>
   <div>
-    <UpdateProfileImg ref='modal1' :uid='$route.params.id'></UpdateProfileImg>
     <Modal ref='ProfileModal'>
       <UpdateProfile :user='loginUser' @send="$refs.ProfileModal.isActive = false; $emit('getUser')"></UpdateProfile>
     </Modal>
@@ -18,7 +17,6 @@
 </template>
 
 <script>
-import UpdateProfileImg from '../components/UpdateProfileImg.vue'
 import Modal from '../components/Modal.vue'
 import UpdateProfile from '../components/UpdateProfile.vue'
 import UpdateIcon from '../components/UpdateIcon.vue'
@@ -26,7 +24,7 @@ import UpdateIcon from '../components/UpdateIcon.vue'
 export default {
   name: 'Profile',
   props: ['loginUser'],
-  components: {UpdateProfileImg, Modal, UpdateProfile, UpdateIcon},
+  components: {Modal, UpdateProfile, UpdateIcon},
   methods: {
     signout() {
       const _this = this
