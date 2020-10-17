@@ -4,6 +4,7 @@
       <GmapMap
         :center="center"
         :zoom="18"
+        gestureHandling='greedy'
         map-type-id="roadmap"
         style="width: 100%; height: 300px"
       >

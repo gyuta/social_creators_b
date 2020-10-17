@@ -2,6 +2,7 @@
   <GmapMap
     :center="mapConfig.center"
     :zoom="18"
+    gestureHandling='greedy'
     map-type-id="terrain"
     style="width: 100%; height: 100vh"
   >

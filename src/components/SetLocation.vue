@@ -4,6 +4,7 @@
       :center="center"
       :zoom="18"
       map-type-id="roadmap"
+      gestureHandling='greedy'
       style="width: 100%; height: 300px"
       @click='click($event)'
     >
