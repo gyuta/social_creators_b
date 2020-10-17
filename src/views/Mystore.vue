@@ -8,6 +8,9 @@
     </Modal>
     <div class="c-btn" @click='$refs.UpdateModal.isActive = true'>店舗情報を登録する</div>
     <div class="c-btn" @click='$refs.LocModal.isActive = true'>位置情報を登録する</div>
+    <br>
+    <input type="file" ref='file' @change='uploadImg'>
+    <br>
     <div class="row">
       <div class="key">名前</div>
       <div class="value">{{ store.name }}</div>
@@ -26,6 +29,7 @@
 import Modal from '../components/Modal.vue'
 import SetLocation from '../components/SetLocation.vue'
 import UpdateStoreInfo from '../components/UpdateStoreInfo.vue'
+import { v4 as uuidv4 } from 'uuid'
 
 export default {
   name: 'Mystore',
@@ -65,7 +69,27 @@ export default {
             alert('ストア情報が存在しません')
           }
         })
-      }
+      },
+    uploadImg(e) {
+      const _this = this
+      const file = e.target.files[0]
+      const uuid = uuidv4()
+      this.$firebase.storage()
+        .ref('storeImage/' + uuid )
+        .put(file)
+        .then(ss => {
+          ss.ref.getDownloadURL().then(url => {
+            this.$firebase.firestore()
+              .collection('stores')
+              .doc(_this.store.id)
+              .update({'images': _this.$firebase.firestore.FieldValue.arrayUnion(url)})
+              .then(() => {
+                alert('追加完了！')
+              })
+          })
+        })
+        
+    }
   }
 }
 </script>
