@@ -6,6 +6,9 @@ import firebase from './js/firebase.js'
 import Croppa from 'vue-croppa';
 import "./js/filter"
 import * as VueGoogleMaps from 'vue2-google-maps'
+import VueCarousel from 'vue-carousel'
+
+Vue.use(VueCarousel)
 
 Vue.use(VueGoogleMaps, {
   load: {
