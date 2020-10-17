@@ -15,6 +15,9 @@ export default {
             }
           })
       })
+    },
+    getFireTime() {
+      return firebase.firestore.FieldValue.serverTimestamp()
     }
   }
 }

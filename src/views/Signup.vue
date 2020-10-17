@@ -60,7 +60,7 @@ export default {
                   .doc(result.user.uid)
                   .set({
                     id: result.user.uid,
-                    createdAt: _this.$firebase.firestore.FieldValue.serverTimestamp()
+                    createdAt: _this.getFireTime()
                   })
               }
               _this.$router.push('\mypage')

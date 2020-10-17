@@ -2,8 +2,6 @@
   <div>
     <p class="error">{{ error }}</p>
 
-    <p class="decode-result">Last result: <b>{{ result }}</b></p>
-
     <qrcode-stream @decode="onDecode" @init="onInit" />
   </div>
 </template>
@@ -17,14 +15,22 @@ export default {
 
   data () {
     return {
-      result: '',
       error: ''
     }
   },
-
+  props: ['storeId'],
   methods: {
-    onDecode (result) {
-      this.result = result
+    onDecode (id) {
+      this.$firebase.firestore().collection('users')
+        .doc(id)
+        .collection('records')
+        .add({
+          store: this.storeId,
+          createdAt: this.getFireTime()
+        })
+        .then(
+          alert('読み込みが完了しました')
+        )
     },
 
     async onInit (promise) {
