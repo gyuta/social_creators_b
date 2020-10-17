@@ -1,8 +1,12 @@
 <template>
   <div>
+    <Modal ref='UpdateModal'>
+      <UpdateStoreInfo v-if="store" :store='store' @updated='$refs.UpdateModal.isActive = false; getStoreInfo()'></UpdateStoreInfo>
+    </Modal>
     <Modal ref='LocModal'>
       <SetLocation :id='loginUser.id' @regist='$refs.LocModal.isActive = false'>></SetLocation>
     </Modal>
+    <div class="c-btn" @click='$refs.UpdateModal.isActive = true'>店舗情報を登録する</div>
     <div class="c-btn" @click='$refs.LocModal.isActive = true'>位置情報を登録する</div>
     <div class="row">
       <div class="key">名前</div>
@@ -21,16 +25,17 @@
 <script>
 import Modal from '../components/Modal.vue'
 import SetLocation from '../components/SetLocation.vue'
+import UpdateStoreInfo from '../components/UpdateStoreInfo.vue'
 
 export default {
   name: 'Mystore',
   data() {
     return {
-      store: {}
+      store: false
     }
   },
   props: ['loginUser'],
-  components: {Modal, SetLocation},
+  components: {Modal, SetLocation, UpdateStoreInfo},
   async created() {
     if (this.loginUser.kind !== 'owner') {
       this.$router.push('/')
