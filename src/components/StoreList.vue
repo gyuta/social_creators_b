@@ -6,7 +6,7 @@
     <Modal ref='imgModal'>
       <carousel :per-page="1" :centerMode='true' :loop="true">
         <slide v-for="img in images" :key='img'>
-          <img :src="img">
+          <img :src="img" alt=''>
         </slide>
       </carousel>
     </Modal>
