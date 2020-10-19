@@ -33,7 +33,7 @@ export default {
   display: flex;
   align-items: center;
   padding: 4px 8px;
-  position: absolute;
+  position: fixed;
   width: 100%;
   max-width: var(--max-width);
   background-color: white;

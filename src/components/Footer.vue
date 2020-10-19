@@ -14,7 +14,7 @@ export default {
 #footer {
   background-color: var(--yellow);
   height: var(--footer-height);
-  position: absolute;
+  position: fixed;
   z-index: 10;
   width: 100%;
   max-width: var(--max-width);
