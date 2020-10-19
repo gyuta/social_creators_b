@@ -4,7 +4,7 @@
     :zoom="18"
     gestureHandling='greedy'
     map-type-id="terrain"
-    style="width: 100%; height: calc(100vh - var(--header-height));"
+    style="width: 100%; height: calc(100vh - var(--header-height) - var(--footer-height));"
   >
   </GmapMap>
 </template>

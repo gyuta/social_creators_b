@@ -2,15 +2,17 @@
   <div id="app">
     <Header :user='user'></Header>
     <router-view :loginUser='user' @getUser='getUser' />
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
 import Header from './components/Header'
+import Footer from './components/Footer'
 
 export default {
   name: 'App',
-  components: {Header},
+  components: {Header, Footer},
   data() {
     return {
       user: null,
