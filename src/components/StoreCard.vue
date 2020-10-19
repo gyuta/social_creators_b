@@ -1,7 +1,8 @@
 <template>
   <div class="store">
     <div class="main">
-      <img src="https://d1f5hsy4d47upe.cloudfront.net/cd/cd3471f596a1546e1a533cb5c4a1cbe4_t.jpeg" alt="">
+      <img v-if="store.images" :src="store.images[0]" alt="">
+      <img v-else src="https://d1f5hsy4d47upe.cloudfront.net/cd/cd3471f596a1546e1a533cb5c4a1cbe4_t.jpeg" alt="">
       <div class="name">{{ store.name }}</div>
     </div>
     <div class="comment">{{ store.comment }}</div>
