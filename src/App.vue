@@ -57,7 +57,8 @@ export default {
 
   background-color: #fff;
   min-height: 100vh;
-  width: 500px;
+  width: 100%;
+  max-width: var(--max-width);
   margin: 0 auto;
 }
 </style>
