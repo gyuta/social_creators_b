@@ -1,6 +1,7 @@
 <template>
-  <div id="footer">
-    
+  <div id="footer-wrap">
+    <div id="footer">
+    </div>
   </div>
 </template>
 
@@ -11,6 +12,10 @@ export default {
 </script>
 
 <style>
+#footer-wrap {
+  height: var(--footer-height);
+}
+
 #footer {
   background-color: var(--yellow);
   height: var(--footer-height);
