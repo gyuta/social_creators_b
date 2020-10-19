@@ -37,6 +37,11 @@ const routes = [
     component: () => import('../views/Map.vue')
   },
   {
+    path: '/stores',
+    name: 'stores',
+    component: () => import('../views/Stores.vue')
+  },
+  {
     path: '/',
     name: 'main',
     component: Main
