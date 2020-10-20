@@ -13,9 +13,24 @@
       <div class="count">挨拶回数 0回</div>
     </div>
     <div class="store-info">
-      野菜売ってます　野菜売ってます　野菜売ってます　野菜売ってます　野菜売ってます　野菜売ってます　野菜売ってます　野菜売ってます　
+      <div class="title">店舗情報</div>
+      <div class="info">
+        野菜売ってます　野菜売ってます　野菜売ってます　野菜売ってます　野菜売ってます　野菜売ってます　野菜売ってます　野菜売ってます　
+      </div>
     </div>
-    <div class="posts"></div>
+    <div class="wrap">
+      <div class="title">新着情報・キャンペーン情報</div>
+      <div class="posts">
+        <div class="post" v-for="post in posts" :key='post.id'>
+          <img :src="post.image" alt="">
+          <div class="band">
+            <div class="post-title">{{ post.title }}</div>
+            <div class="date">{{ post.createdAt.toDate() | fullDate() }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="title uc">ユーザーコメント</div>
     <div class="user-comments">
       <div class="comment" v-for="comment in comments" :key="comment.id" >
         <img :src="comment.icon" alt="">
@@ -27,7 +42,7 @@
     </div>
     <div class="post-comment">
       <textarea name="" id="" cols="30" rows="2" v-model="commentBody"></textarea>
-      <div class="c-btn" @click='sendComment'>送信</div>
+      <div class="c-btn send" @click='sendComment'>送信</div>
     </div>
   </div>
 </template>
@@ -40,6 +55,7 @@ export default {
       id: this.$route.params.id,
       store: {},
       owner: {},
+      posts: [],
       comments: [],
       commentBody: ''
     }
@@ -69,14 +85,21 @@ export default {
               _this.comments.push(comment)
             })
           })
-      })
-  await this.$firebase.firestore().collection('users')
-    .doc(this.id)
-    .get()
-    .then( doc => {
-      _this.owner = doc.data()
-    })
 
+        await doc.ref.collection('posts')
+          .get()
+          .then( qs => {
+            qs.forEach( data => {
+              _this.posts.push({...data.data(), id: data.id})
+            })
+          })
+      })
+    await this.$firebase.firestore().collection('users')
+      .doc(this.id)
+      .get()
+      .then( doc => {
+        _this.owner = doc.data()
+      })
   },
   methods: {
     sendComment() {
@@ -131,7 +154,7 @@ export default {
 .store-header {
   display: flex;
   align-items: center;
-  padding: 5px;
+  padding: 10px;
   
   img {
     width: 60px;
@@ -145,10 +168,67 @@ export default {
   }
 }
 
+.store-info {
+  font-size: 12px;
+  padding: 10px;
+  border-top: #0000002e solid 1px;
+
+  .title {
+    margin-bottom: 5px;
+  }
+}
+
+.wrap {
+  padding: 10px;
+  border-top: #0000002e solid 1px;
+  border-bottom: #0000002e solid 1px;
+}
+
+.title {
+  font-size: 12px;
+}
+
+.posts {
+  display: flex;
+
+  .post {
+    position: relative;
+    font-size: 12px;
+    margin-right: 20px;
+
+    img {
+      width: 87px;
+      height: 93px;
+      border-radius: 9px;
+    }
+
+    .band {
+      position: absolute;
+      bottom: 4px;
+      width: 100%;
+      color: white;
+      background-color: #969292a1;
+      backdrop-filter: blur(4px);
+      padding: 5px;
+      white-space: nowrap;
+      overflow-x: scroll;
+
+      .date {
+        font-size: 5px;
+      }
+    }
+  }
+}
+
+.uc {
+  padding: 10px 0 0 10px;
+}
+
 .comment {
   display: flex;
   font-size: 12px;
   padding: 10px;
+  border-bottom: #0000002e solid 1px;
   
   img {
     width: 60px;
@@ -165,6 +245,16 @@ export default {
       margin-bottom: 5px;
     }
   }
+}
+
+textarea {
+  margin: 10px;
+  margin-left: 30px;
+}
+
+.send {
+  position: relative;
+  top: -20px;
 }
 
 </style>
