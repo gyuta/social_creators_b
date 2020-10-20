@@ -1,5 +1,5 @@
 <template>
-  <div class="store">
+  <div class="store" @click='go(store.id)'>
     <div class="main">
       <img v-if="store.images" :src="store.images[0]" alt="">
       <img v-else src="https://d1f5hsy4d47upe.cloudfront.net/cd/cd3471f596a1546e1a533cb5c4a1cbe4_t.jpeg" alt="">
@@ -12,13 +12,19 @@
 <script>
 export default {
   name: 'StoreCard',
-  props: ['store']
+  props: ['store'],
+  methods: {
+    go(id) {
+      this.$router.push({name: 'store_detail', params: {'id': id}})
+    }
+  }
 }
 </script>
 
 <style scoped lang='scss'>
 .store {
   margin: 10px;
+  cursor: pointer;
   .main {
     position: relative;
 
