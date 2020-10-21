@@ -30,7 +30,7 @@
             <div class="item">ニックネーム：ごぼりん</div>
             <div class="item">好きなこと・趣味：ゴボウ</div>
             <div class="item">ひとこと：ゴボウならいつでも安くします！</div>
-            <div class="item">ストーリー:「僕の人生はゴボウが全てだった」</div>
+            <div class="item" @click='story()' style='cursor: pointer'>ストーリー:<br>「僕の人生はゴボウが全てだった」</div>
           </div>
       </div>
     </div>
@@ -124,6 +124,9 @@ export default {
       })
   },
   methods: {
+    story() {
+      this.$router.push({name: 'story', params: {'id': this.id}})
+    },
     sendComment() {
       if (!this.loginUser) {
         alert('ログインしてください')
