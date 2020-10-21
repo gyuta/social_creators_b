@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Title title='ほげほげ商店' showBackBtn="true"></Title>
     <div class="tab">
       <div class="item" :class="{active: isActive}" @click='isActive=true'>月間ランキング</div>
       <div class="item" :class="{active: !isActive}" @click='isActive=false'>総合ランキング</div>
@@ -16,8 +17,11 @@
 </template>
 
 <script>
+import Title from '../components/Title.vue'
+
 export default {
   name: 'Ranking',
+  components: {Title},
   data() {
     return {
       isActive: true,

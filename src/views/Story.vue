@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Title title="" showBackBtn="true"></Title>
     <div class="main">
       <div class="title">
         僕の人生はゴボウが全てだった
@@ -15,8 +16,11 @@
 </template>
 
 <script>
+import Title from '../components/Title.vue'
+
 export default {
   name: 'Story',
+  components: {Title},
   data() {
     return {
       body: `

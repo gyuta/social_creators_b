@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="store-info">
-      <div class="title">店舗情報</div>
+      <div class="title">店主情報</div>
       <div class="info">
           <img :src="owner.icon" alt="">
           <div class="detail">
