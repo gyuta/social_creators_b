@@ -52,6 +52,11 @@ const routes = [
     component: () => import('../views/Story.vue')
   },
   {
+    path: '/ranking/:id',
+    name: 'ranking',
+    component: () => import('../views/Ranking.vue')
+  },
+  {
     path: '/',
     name: 'main',
     component: Main
