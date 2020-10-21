@@ -48,6 +48,9 @@
           <div class="name">{{ comment.name }}</div>
           <div class="body">{{ comment.body }}</div>
         </div>
+        <div class="count">
+          挨拶回数 0回
+        </div>
       </div>
     </div>
     <div class="post-comment">
@@ -259,6 +262,7 @@ export default {
   font-size: 12px;
   padding: 10px;
   border-bottom: #0000002e solid 1px;
+  position: relative;
   
   img {
     width: 60px;
@@ -274,6 +278,12 @@ export default {
       color: blue;
       margin-bottom: 5px;
     }
+  }
+
+  .count {
+    position: absolute;
+    top: 10px;
+    right: 10px;
   }
 }
 
