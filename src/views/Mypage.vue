@@ -47,6 +47,11 @@ export default {
       isOwner: this.loginUser.kind === 'owner'
     }
   },
+  created() {
+    if (!this.loginUser) {
+      this.$router.push('/signin')
+    }
+  },
   methods: {
     signout() {
       const _this = this

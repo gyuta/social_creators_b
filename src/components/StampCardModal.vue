@@ -18,6 +18,12 @@
       <div class='reward'>
         {{ reward }}
       </div>
+      <div class="expire">
+        失効期限: 2021:01:20
+      </div>
+      <div class="note">
+        最後にスタンプを押されてから３ヶ月後に失効となります。
+      </div>
     </Modal>
   </div>
 </template>
@@ -87,5 +93,14 @@ export default {
 .reward {
   margin-top: 10px;
   font-size: 12px;
+}
+
+.expire {
+  margin-top: 10px;
+  font-size: 10px;
+}
+
+.note {
+  font-size: 8px;;
 }
 </style>
