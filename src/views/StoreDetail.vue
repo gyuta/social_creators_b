@@ -8,14 +8,24 @@
       </carousel>
     </div>
     <div class="store-header">
-      <img :src="owner.icon" alt="">
-      <div class="name">{{ store.name }}</div>
-      <div class="count">挨拶回数 0回</div>
+      <div class="name">{{ store.name }}<span class='badge'>八百屋</span></div>
+      <div class="detail">
+        <div class="item">営業時間：6:30 ~ 21:00</div>
+        <div class="item">営業日：毎週日曜日定休日</div>
+        <div class="item">価格帯：50円〜10000円</div>
+        <div class="item">住所：京都市左京区京都らしさ町挨拶１丁目</div>
+      </div>
     </div>
     <div class="store-info">
       <div class="title">店舗情報</div>
       <div class="info">
-        野菜売ってます　野菜売ってます　野菜売ってます　野菜売ってます　野菜売ってます　野菜売ってます　野菜売ってます　野菜売ってます　
+          <img :src="owner.icon" alt="">
+          <div class="detail">
+            <div class="item">ニックネーム：ごぼりん</div>
+            <div class="item">好きなこと・趣味：ゴボウ</div>
+            <div class="item">ひとこと：ゴボウならいつでも安くします！</div>
+            <div class="item">ストーリー:「僕の人生はゴボウが全てだった」</div>
+          </div>
       </div>
     </div>
     <div class="wrap">
@@ -152,19 +162,24 @@ export default {
 }
 
 .store-header {
-  display: flex;
-  align-items: center;
   padding: 10px;
   
-  img {
-    width: 60px;
-    height: 60px;
-    border-radius: 60px;
+  .name {
+    margin-left: 10px;
+    font-size: 1.2rem;
+
+    span {
+      font-size: 12px;
+      margin-left: 10px;
+      border: gray 1px solid;
+      padding: 2px 4px;
+      border-radius: 8px;
+    }
   }
 
-  .name {
-    flex-grow: 1;
-    margin-left: 10px;
+  .detail {
+    font-size: 8px;
+    margin-left: 20px;
   }
 }
 
@@ -175,6 +190,21 @@ export default {
 
   .title {
     margin-bottom: 5px;
+  }
+
+  .info {
+    display: flex;
+
+    img {
+      width: 87px;
+      height: 110px;
+      border-radius: 30px;
+      object-fit: cover;
+    }
+
+    .detail {
+      margin-left: 10px;
+    }
   }
 }
 
