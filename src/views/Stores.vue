@@ -1,8 +1,16 @@
 <template>
   <div>
-    <h1>店舗一覧</h1>
-    <StoreCard v-for="store in stores" :key="store.id" :store='store'>
-    </StoreCard>
+    <div class="search">
+      <input type="text" placeholder="検索ワードを入力" v-model="keyword">
+    </div>
+    <div class="tab">
+      <div class="item" :class="{active: isActive}" @click='isActive=true'>おすすめ</div>
+      <div class="item" :class="{active: !isActive}" @click='isActive=false'>新着</div>
+    </div>
+    <div class="stores">
+      <StoreCard v-for="store in  filteredStore" :key="store.id" :store='store'>
+      </StoreCard>
+    </div>
   </div>
 </template>
 
@@ -13,7 +21,9 @@ export default {
   components: {StoreCard},
   data() {
     return {
-      stores: []
+      isActive: true,
+      stores: [],
+      keyword: ''
     }
   },
   async created() {
@@ -25,10 +35,50 @@ export default {
           _this.stores.push(item.data())
         })
       })
+  },
+  computed: {
+    filteredStore() {
+      return this.stores.filter( item => {
+        return item.name.indexOf(this.keyword) !== -1
+      })
+    }
   }
 }
 </script>
 
-<style>
+<style lang='scss' scoped>
+.search {
+  padding: 20px;
+  padding-bottom: 0;
+  input {
+    width: 100%;
+    border-radius: 20px;
+    outline: none;
+    padding: 2px 15px;
+    border: 1px solid black;
+  }
+}
+.tab {
+  display: flex;
+  height: 50px;
+  margin: 20px;
+  justify-content: space-between;
+  cursor: pointer;
 
+  .item {
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+    flex-basis: 45%;
+
+    &.active {
+      border-bottom: var(--yellow) solid 5px;
+    }
+  }
+}
+
+.stores {
+  display: flex;
+  flex-wrap: wrap;
+}
 </style>

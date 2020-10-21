@@ -1,11 +1,13 @@
 <template>
-  <div class="store" @click='go(store.id)'>
-    <div class="main">
-      <img v-if="store.images" :src="store.images[0]" alt="">
-      <img v-else src="https://d1f5hsy4d47upe.cloudfront.net/cd/cd3471f596a1546e1a533cb5c4a1cbe4_t.jpeg" alt="">
-      <div class="name">{{ store.name }}</div>
+  <div class="store-wrap">
+    <div class="store" @click='go(store.id)'>
+      <div class="main">
+        <img v-if="store.images" :src="store.images[0]" alt="">
+        <img v-else src="https://d1f5hsy4d47upe.cloudfront.net/cd/cd3471f596a1546e1a533cb5c4a1cbe4_t.jpeg" alt="">
+        <div class="name">{{ store.name }}</div>
+      </div>
+      <div class="comment">{{ store.comment }}</div>
     </div>
-    <div class="comment">{{ store.comment }}</div>
   </div>
 </template>
 
@@ -22,9 +24,15 @@ export default {
 </script>
 
 <style scoped lang='scss'>
+.store-wrap {
+  padding: 10px;
+  flex-basis: 50%;
+}
+
 .store {
-  margin: 10px;
   cursor: pointer;
+  width: 100%;
+
   .main {
     position: relative;
 
@@ -44,6 +52,13 @@ export default {
       font-size: 15px;
       padding: 8px 4px;
     }
+  }
+
+  .comment {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
   }
 }
 </style>
