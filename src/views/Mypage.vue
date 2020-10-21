@@ -7,14 +7,26 @@
       <UpdateIcon :uid='loginUser.id' @update="$refs.IconModal.isActive = false; $emit('getUser')"></UpdateIcon>
     </Modal>
     <Modal ref='QR'>
-      <ShowQR :id='loginUser.id'></ShowQR>
     </Modal>
     <Modal ref='ReadQR'>
       <ReadQR :storeId='loginUser.id'></ReadQR>
     </Modal>
-    <h1>マイページ</h1>
-    <p>こんにちは、{{ loginUser.name }} さん</p>
-    <p>プロフィール: {{ loginUser.profile | avoidEmpty }}</p>
+    <div class="user-info">
+      <img :src="loginUser.icon" alt="">
+      <div class="name">{{ loginUser.name }} さん</div>
+    </div>
+    <div class="QR-wrap">
+      <ShowQR :id='loginUser.id'></ShowQR>
+    </div>
+    <div class="row top">
+      <div class="key">総挨拶回数</div>
+      <div class="value">19回</div>
+    </div>
+    <div class="row">
+      <div class="key">登録地域</div>
+      <div class="value">京都府京都市左京区</div>
+    </div>
+    <br>
     <div class='c-btn' @click='$refs.ProfileModal.isActive = true'>プロフィールを変更する</div>
     <div class='c-btn' @click='$refs.IconModal.isActive = true'>アイコンを変更する</div>
     <br>
@@ -66,4 +78,54 @@ export default {
 </script>
 
 <style scoped lang='scss'>
+
+.QR-wrap {
+  text-align: center;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+  }
+
+  .name {
+    padding: 20px;
+  }
+}
+
+.icon-wrap {
+  margin-bottom: 10px;
+
+  img {
+    width: 150px;
+    height: 150px;
+    border-radius: 150px;
+    margin: 0 auto;
+  }
+}
+
+.top {
+  border-top: 1px solid gray;
+}
+
+.row {
+  display: flex;
+  padding: 5px 20px;
+  border-bottom: 1px solid gray;
+
+  &:first-of-type {
+    border-top: 1px solid gray;
+  }
+
+  .value {
+    flex-grow: 1;
+    text-align: right;
+  }
+}
 </style>
