@@ -13,7 +13,8 @@
           <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
         </svg>
       </div>
-      <div class="item">
+      <div class="item notify" @click='notify()'>
+        <div class="new">new</div>
         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bell-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
         </svg>
@@ -36,6 +37,9 @@ export default {
     },
     top() {
       this.$router.push('/').catch( err => {})
+    },
+    notify() {
+      this.$router.push('/notify').catch( err => {})
     }
   }
 }
@@ -67,6 +71,22 @@ export default {
       height: 30px;
       fill: white;
     }
+  }
+}
+
+.notify {
+  position: relative;
+
+  .new {
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    background-color: #4AB2FF;
+    color: white;
+    padding: 1px 3px;
+    border-radius: 10px;
+    font-size: 6px;
+    font-weight: bold;
   }
 }
 </style>

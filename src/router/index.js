@@ -57,6 +57,11 @@ const routes = [
     component: () => import('../views/Ranking.vue')
   },
   {
+    path: '/notify',
+    name: 'notify',
+    component: () => import('../views/Notify.vue')
+  },
+  {
     path: '/',
     name: 'main',
     component: Main
