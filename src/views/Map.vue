@@ -1,6 +1,6 @@
 <template>
   <div class='main'>
-    <input type="text" placeholder="検索ワードを入力">
+    <input type="text" placeholder="検索ワードを入力" v-model="keyword">
     <GmapMap
       :center="mapConfig.center"
       :zoom="16"
@@ -40,7 +40,8 @@
         </div>
       </GmapInfoWindow>
       <GmapMarker
-        v-for="(store, i) in stores" :key='i'
+        v-for="store in filteredStore"
+        :key='store.id'
         :position='store.center'
         @click='openInfoWindow(store)'
       >
@@ -54,6 +55,7 @@ export default {
   name: "Map",
   data() {
     return {
+      keyword: '',
       mapConfig: {
         center: {
           lat: 35.003175,
@@ -114,6 +116,13 @@ export default {
           _this.stores.push(store)
         })
       })
+  },
+  computed: {
+    filteredStore() {
+      return this.stores.filter( item => {
+        return item.name.indexOf(this.keyword) !== -1
+      })
+    }
   }
 }
 </script>
