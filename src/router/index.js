@@ -42,11 +42,6 @@ const routes = [
     component: () => import('../views/StoreDetail.vue')
   },
   {
-    path: '/stores',
-    name: 'stores',
-    component: () => import('../views/Stores.vue')
-  },
-  {
     path: '/story/:id',
     name: 'story',
     component: () => import('../views/Story.vue')
@@ -63,8 +58,8 @@ const routes = [
   },
   {
     path: '/',
-    name: 'main',
-    component: Main
+    name: 'stores',
+    component: () => import('../views/Stores.vue')
   },
   // {
   //   path: '/about',
