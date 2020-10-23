@@ -2,7 +2,7 @@
   <div>
     <Title title='お知らせ' showBackBtn="true"></Title>
     <div class="main">
-      <div class="row" v-for="(item, index) of 8" :key='index'>
+      <div class="row" v-for="(item, index) of 8" :key='index' @click='go()'>
         <div class="badge" v-if="index < 2"></div>
         <img src="https://previews.123rf.com/images/paylessimages/paylessimages1507/paylessimages150727905/43014951-%E3%82%B4%E3%83%9C%E3%82%A6%E6%A0%B9.jpg" alt="">
         <div class="title">ゴボウ安いよ！</div>
@@ -22,7 +22,12 @@ import Title from '../components/Title.vue'
 
 export default {
   name: 'Notify',
-  components: {Title}
+  components: {Title},
+  methods: {
+    go() {
+      this.$router.push({name: 'news',params: {id: 'fhoaigjofjla'}})
+    }
+  }
   
 }
 </script>

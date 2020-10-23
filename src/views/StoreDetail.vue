@@ -42,7 +42,7 @@
     <div class="wrap">
       <div class="title">新着情報・キャンペーン情報</div>
       <div class="posts">
-        <div class="post" v-for="post in posts" :key='post.id'>
+        <div class="post" v-for="post in posts" :key='post.id' @click='go_post()'>
           <img :src="post.image" alt="">
           <div class="band">
             <div class="post-title">{{ post.title }}</div>
@@ -131,6 +131,9 @@ export default {
   methods: {
     story() {
       this.$router.push({name: 'story', params: {'id': this.id}})
+    },
+    go_post() {
+      this.$router.push({name: 'news',params: {id: 'fhoaigjofjla'}})
     },
     sendComment() {
       if (!this.loginUser) {
@@ -265,6 +268,7 @@ export default {
     position: relative;
     font-size: 12px;
     margin-right: 20px;
+    cursor: pointer;
 
     img {
       width: 87px;
