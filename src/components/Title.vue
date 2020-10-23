@@ -5,7 +5,7 @@
         <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
       </svg>
     </span>
-    <span>{{ title }}</span>
+    <span class='title'>{{ title }}</span>
   </div>
 </template>
 
@@ -27,9 +27,14 @@ export default {
   background: linear-gradient(var(--yellow), white);
 
   .btn {
-    margin: 0 20px;
+    margin-left: 20px;
     position: relative;
     top: 2px;
+    cursor: pointer;
+  }
+
+  .title {
+    margin-left: 20px;
   }
 }
 

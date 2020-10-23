@@ -25,11 +25,11 @@ export default {
 
 <style scoped lang='scss'>
 .store-wrap {
-  padding: 10px;
-  flex-basis: 50%;
+  margin-bottom: 10px;
 }
 
 .store {
+  break-inside: avoid;
   cursor: pointer;
   width: 100%;
 

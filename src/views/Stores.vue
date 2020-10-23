@@ -78,7 +78,7 @@ export default {
 }
 
 .stores {
-  display: flex;
-  flex-wrap: wrap;
+  column-count: 2;
+  padding: 10px;
 }
 </style>
