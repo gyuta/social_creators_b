@@ -24,7 +24,8 @@ export default {
       const _this = this;
       this.$firebase.firestore().collection('users')
         .doc(id)
-        .get( user => {
+        .get()
+        .then( user => {
           _this.$firebase.firestore().collection('users')
             .doc(id)
             .update({
