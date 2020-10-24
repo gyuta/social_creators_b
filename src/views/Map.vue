@@ -14,7 +14,7 @@
         :options='window.options'
         @closeclick="window.isOpened=false"
       >
-        <div class='window' @click='window.isOpened = false'>
+        <div class='window' v-if='window.store' @click='window.isOpened = false'>
           <div class="name">{{ window.content.name }}</div>
           <div class="body">
             <img :src="window.content.icon" alt="">
@@ -24,13 +24,13 @@
               <div class="item">価格帯：50円〜10000円</div>
               <div class="item">住所：京都市左京区京都らしさ町挨拶１丁目</div>
               <div class="wrap">
-                <div class="badge">八百屋</div>
+                <div class="badge">{{ window.store.style }}</div>
               </div>
             </div>
           </div>
           <div class="comment">
             <div class="tri"></div>
-            ゴボウならいつでも安くします！
+            {{ window.store.owner.comment }}
           </div>
           <div class="btn" @click="storeDetail()">
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-shop" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -90,6 +90,7 @@ export default {
   },
   methods: {
     openInfoWindow(store) {
+      this.window.store = store
       this.window.position = store.center;
       this.window.content.id = store.id
       this.window.content.name = store.owner.name

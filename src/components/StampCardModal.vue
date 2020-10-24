@@ -1,6 +1,7 @@
 <template>
   <div>
     <Modal ref='modal'>
+      <div class="store">モダン焼き　フジ</div>
       <div class="card">
         <div class="item" v-for="n of 10" :key="n">
           <div class="cell">
@@ -36,10 +37,10 @@ export default {
   components: {Modal},
   data() {
     return {
-      count: 3,
       reward: 'スタンプ１０個獲得でオリジナルTシャツプレゼント！'
     }
   },
+  props: ['count'],
   methods: {
     show() {
       this.$refs.modal.isActive = true;

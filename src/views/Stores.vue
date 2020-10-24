@@ -30,9 +30,16 @@ export default {
     const _this = this
     await this.$firebase.firestore().collection('stores')
       .get()
-      .then( ss => {
-        ss.forEach( item => {
-          _this.stores.push(item.data())
+      .then(async ss => {
+        ss.forEach( async item => {
+          const store = item.data()
+          await _this.$firebase.firestore().collection('users')
+            .doc(store.id)
+            .get()
+            .then( owner => {
+              store.owner = owner.data()
+            })
+          _this.stores.push(store)
         })
       })
   },

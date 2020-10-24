@@ -133,7 +133,7 @@ export default {
         return;
       }
 
-      if(!this.name || !this.email || this.password) {
+      if(!this.name || !this.email || !this.password) {
         alert("未入力の項目があります")
         return;
       }
@@ -148,7 +148,8 @@ export default {
               id: result.user.uid,
               name: _this.name,
               icon: 'https://firebasestorage.googleapis.com/v0/b/social-creators-b.appspot.com/o/userIcon%2Fdefault.png?alt=media&token=03423779-f433-4d38-85d6-d5c1e96cc81e',
-              kind: _this.kind
+              kind: _this.kind,
+              count: 0
             })
             .then( async () => {
               if (_this.kind === 'owner') {

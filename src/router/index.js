@@ -62,6 +62,11 @@ const routes = [
     component: () => import('../views/News.vue')
   },
   {
+    path: '/greeding_rank',
+    name: 'greeding_rank',
+    component: () => import('../views/GreedRank.vue')
+  },
+  {
     path: '/',
     name: 'stores',
     component: () => import('../views/Stores.vue')

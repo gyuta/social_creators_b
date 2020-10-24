@@ -3,10 +3,10 @@
     <Title title="" showBackBtn="true"></Title>
     <div class="main">
       <div class="title">
-        ゴボウ安いよ！
+        お得なランチセット
       </div>
       <div class="date">
-        投稿者: ごぼりん
+        投稿者: フジ
       </div>
       <div class="body">
         {{ body }}
@@ -23,7 +23,7 @@ export default {
   components: {Title},
   data() {
     return {
-      body: `明日（今日も声かけてくれたら）ゴボウ安くします！夕飯のおかずは筑前煮で決まりやね！！`
+      body: `【Locoユーザー限定】モダン焼き、フジ卵、かやくご飯のランチセットが800円→750円！`
     }
   }
 }
