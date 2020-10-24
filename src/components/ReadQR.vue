@@ -21,16 +21,19 @@ export default {
   props: ['storeId'],
   methods: {
     onDecode (id) {
+      const _this = this;
       this.$firebase.firestore().collection('users')
         .doc(id)
-        .collection('records')
-        .add({
-          store: this.storeId,
-          createdAt: this.getFireTime()
+        .get( user => {
+          _this.$firebase.firestore().collection('users')
+            .doc(id)
+            .update({
+              count: (user.data().count + 1)
+            })
+            .then( () => {
+              alert('読み込みが完了しました')
+            })
         })
-        .then(
-          alert('読み込みが完了しました')
-        )
     },
 
     async onInit (promise) {
