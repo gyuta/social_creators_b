@@ -20,10 +20,10 @@
           <input type="radio" id="guest" value="guest" name='kind' v-model="kind" checked>
           <label for="guest">個人ユーザー</label>
         </div>
-        <div>
+        <!-- <div>
           <input type="radio" id="owner" value="owner" name='kind' v-model="kind" >
           <label for="owner">事業者</label>
-        </div>
+        </div> -->
       </div>
       <label class="label">利用規約</label>
       <div class="rule">
