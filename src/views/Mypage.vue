@@ -24,8 +24,8 @@
         </div>
         <div class="st">挨拶ランク</div>
       </div>
-      <div class="item middle">
-        <div class="value big">19回</div>
+      <div class="item middle" @click="$router.push('/greeding_count')">
+        <div class="value big">{{ loginUser.count }}回</div>
         <div class="st">総挨拶回数</div>
       </div>
       <div class="item">

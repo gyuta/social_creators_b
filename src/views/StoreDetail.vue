@@ -59,8 +59,8 @@
           <div class="name">{{ comment.name }}</div>
           <div class="body">{{ comment.body }}</div>
         </div>
-        <div class="count">
-          挨拶回数 0回
+        <div class="count" >
+          挨拶回数 1回
         </div>
       </div>
     </div>

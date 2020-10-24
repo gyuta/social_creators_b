@@ -67,6 +67,11 @@ const routes = [
     component: () => import('../views/GreedRank.vue')
   },
   {
+    path: '/greeding_count',
+    name: 'greeding_count',
+    component: () => import('../views/GreedCount.vue')
+  },
+  {
     path: '/',
     name: 'stores',
     component: () => import('../views/Stores.vue')
